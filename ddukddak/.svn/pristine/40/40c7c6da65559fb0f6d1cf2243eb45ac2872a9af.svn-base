@@ -1,0 +1,29 @@
+package kr.or.dduk.nurse.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * 병동관리 컨트롤러
+ * @author dpfvl
+ */
+@Slf4j
+@Controller
+@RequestMapping("/nurse")
+public class WardController {
+
+	/**
+	 * 병동관리 페이지 이동
+	 */
+	@RequestMapping("/ward")
+	public String home() {
+		
+		return "nurse/ward";
+	}
+}

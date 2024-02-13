@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.dduk.mapper.ReservationMapper">
+	<select id="getTodayReservation" resultType="reservationVO">
+		SELECT 
+		    R.RSVT_CD, 
+		    R.RSVT_DT, 
+		    R.RSVT_REASON, 
+		    R.EMP_NO, 
+		    R.PA_NO, 
+		    R.RSVT_STATE,
+		    P.PA_NAME,
+		    E.EMP_NAME
+		FROM RESERVATION R
+		JOIN PATIENT P ON R.PA_NO = P.PA_NO
+		JOIN EMPLOYEE E ON R.EMP_NO = E.EMP_NO
+		WHERE TRUNC(RSVT_DT,'DAY') = TRUNC(SYSDATE,'DAY')
+	</select>
+</mapper>

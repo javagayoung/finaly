@@ -1,0 +1,9 @@
+package kr.or.dduk.calendar.service;
+
+import kr.or.dduk.vo.DocScheduleVO;
+
+public interface CalendarService {
+
+	public int createSc(DocScheduleVO docScheduleVO);
+
+}

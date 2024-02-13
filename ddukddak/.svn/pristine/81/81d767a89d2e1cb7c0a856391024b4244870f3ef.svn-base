@@ -1,0 +1,20 @@
+package kr.or.dduk.calendar.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kr.or.dduk.mapper.CalendarMapper;
+import kr.or.dduk.vo.DocScheduleVO;
+
+@Service
+public class CalendarServiceImpl implements CalendarService {
+	
+	@Autowired
+	CalendarMapper calendarMapper;
+
+	@Override
+	public int createSc(DocScheduleVO docScheduleVO) {
+		return this.calendarMapper.createSc(docScheduleVO);
+	}
+
+}

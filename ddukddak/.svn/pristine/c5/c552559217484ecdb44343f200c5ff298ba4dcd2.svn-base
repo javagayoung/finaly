@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.dduk.mapper.CalendarMapper">
+	<insert id="createSch">
+		<selectKey resultType="String" order="BEFORE" keyProperty="dsNo">
+			SELECT 'SC' || TRIM(TO_CHAR(SUBSTR(MAX(DS_NO),3)+1,'00000000')) AS DS_NO_SEQ FROM DOC_SCHEDULE
+		</selectKey>
+	
+		INSERT INTO DOC_SCHEDULE(DS_NO, EMP_NO, DS_STR_DATE, DS_END_DATE, DS_CATE, DS_CONT, DS_AD)
+		VALUES(#{dsNo}, #{empNo}, #{dsStrDate}, #{dsEndDate}, #{dsCate}, #{dsCont}, #{dsAd})
+	</insert>
+	
+	<delete id="deleteSch">
+		DELETE FROM DOC_SCHEDULE WHERE DS_NO = #{dsNo}
+	</delete>
+</mapper>

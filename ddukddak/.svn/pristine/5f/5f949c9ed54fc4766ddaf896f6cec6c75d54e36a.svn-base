@@ -1,0 +1,16 @@
+package kr.or.dduk.calendar.service;
+
+import kr.or.dduk.vo.DocScheduleVO;
+
+public interface CalendarService {
+
+	// 일정 추가
+	public int createSch(DocScheduleVO docScheduleVO);
+
+	// 일정 삭제
+	public int deleteSch(DocScheduleVO docScheduleVO);
+
+
+
+
+}
